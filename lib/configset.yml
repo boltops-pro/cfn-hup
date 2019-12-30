@@ -1,0 +1,36 @@
+AWS::CloudFormation::Init:
+  configSets:
+    default:
+    - cfn_hup
+  cfn_hup:
+    files:
+      "/etc/cfn/cfn-hup.conf":
+        content:
+          Fn::Sub:
+          - |
+            [main]
+            stack=${AWS::StackId}
+            region=${AWS::Region}
+            interval=1
+          - {}
+        mode: '000400'
+        owner: root
+        group: root
+      "/etc/cfn/hooks.d/cfn-auto-reloader.conf":
+        content:
+          Fn::Sub:
+          - |
+            [cfn-auto-reloader-hook]
+            triggers=post.update
+            path=Resources.<%= @resource %>.Metadata.AWS::CloudFormation::Init
+            action=/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource <%= @resource %> --region ${AWS::Region}
+            runas=root
+          - {}
+    services:
+      sysvinit:
+        cfn-hup:
+          enabled: 'true'
+          ensureRunning: 'true'
+          files:
+          - "/etc/cfn/cfn-hup.conf"
+          - "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
