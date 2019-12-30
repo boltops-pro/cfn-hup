@@ -4,6 +4,8 @@
 
 This configset configures and runs the cfn-hup. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html), cfn-init will run and update the EC2 instance using the updated Metdata.
 
+This ensures that the EC2 instance will always be up-to-date with latest Metatdata AWS::CloudFormation::Init.
+
 ## What are lono configsets?
 
 Lono configsets allow CloudFormation [cfn-init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-init.html) [configsets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) that are typically embedded in the template to be reusable.  More info: [Lono Configsets docs](https://lono.cloud/docs/configsets/).
