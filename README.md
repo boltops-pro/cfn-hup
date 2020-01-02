@@ -2,7 +2,7 @@
 
 [![BoltOps Badge](https://img.boltops.com/boltops/badges/boltops-badge.png)](https://www.boltops.com)
 
-This configset configures and runs the cfn-hup. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html), cfn-init will run and update the EC2 instance using the updated Metdata.
+This configset configures and runs the cfn-hup. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) changes, cfn-init will detect this and update the EC2 instance using the updated Metdata.
 
 This ensures that the EC2 instance will always be up-to-date with latest Metatdata AWS::CloudFormation::Init.
 
