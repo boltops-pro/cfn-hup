@@ -4,9 +4,19 @@
 
 [![BoltOps Badge](https://img.boltops.com/boltops/badges/boltops-badge.png)](https://www.boltops.com)
 
-This configset configures and runs the cfn-hup. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) changes, cfn-init will detect this and update the EC2 instance using the updated Metdata.
+## Why?
 
-This ensures that the EC2 instance will always be up-to-date with latest Metatdata AWS::CloudFormation::Init.
+Configsets are essentially configuration management. Use configsets to configure and update your EC2 instances automatically. Lono allows you to use configsets in a reusable way.
+
+Configsets work with [AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) and [cfn-init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-init.html). Configsets do not magically get applied after being added to the CloudFormation template though.  The `cfn-init` script must be called to apply the configset.
+
+Usually the `cfn-init` script is called in the UserData script. This ensures configsets are applied when instances are launched.
+
+Additionally, the [cfn-hup](https://github.com/boltopspro/cfn-hup) script can be set up to apply configsets continuously.
+
+This configset configures and runs the cfn-hup daemon. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) changes, cfn-hup detects this and updates the EC2 instance. This ensures that the EC2 instance will always be up-to-date.
+
+The cfn-hup configset should usually be one of the first things to be setup.
 
 ## What are lono configsets?
 
