@@ -1,5 +1,7 @@
 # cfn-hup configset
 
+![CodeBuild](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiV3JyMHYvZHVPNlNORnloUVE1YzlNTWJkZUJmNmVtaXdvZ1pKV1U4SUUrcU9VcTVZdm5qbVA2cWdIdUZ0VEIraTVyaFpUajBpK2NvZmNFeTRWaEI1TnI0PSIsIml2UGFyYW1ldGVyU3BlYyI6IjZFRnpCNXh4ZEY3L2dqS00iLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
 [![BoltOps Badge](https://img.boltops.com/boltops/badges/boltops-badge.png)](https://www.boltops.com)
 
 This configset configures and runs the cfn-hup. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) changes, cfn-init will detect this and update the EC2 instance using the updated Metdata.
