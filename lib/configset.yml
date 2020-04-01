@@ -29,8 +29,8 @@ AWS::CloudFormation::Init:
     services:
       sysvinit:
         cfn-hup:
-          enabled: 'true'
-          ensureRunning: 'true'
+          enabled: true
+          ensureRunning: true
           files:
           - "/etc/cfn/cfn-hup.conf"
           - "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
