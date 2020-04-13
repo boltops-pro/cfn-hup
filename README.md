@@ -12,7 +12,7 @@ Configsets work with [AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWS
 
 Usually the `cfn-init` script is called in the UserData script. This ensures configsets are applied when instances are launched.
 
-Additionally, the [cfn-hup](https://github.com/boltopspro/cfn-hup) script can be set up to apply configsets continuously.
+Additionally, the [cfn-hup](https://github.com/boltopspro/cfn-hup) script can be set up to apply configsets **continuously**.
 
 This configset configures and runs the cfn-hup daemon. The `cfn-auto-reloader.conf` is configured to detect changes every 1 minute.  When the stack [Metatdata AWS::CloudFormation::Init](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-init.html) changes, cfn-hup detects this and updates the EC2 instance. This ensures that the EC2 instance will always be up-to-date.
 
